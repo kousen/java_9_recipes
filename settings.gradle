@@ -1,0 +1,4 @@
+rootProject.name = 'java_9_recipes'
+include 'client'
+include 'server'
+

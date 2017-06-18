@@ -1,0 +1,17 @@
+group 'com.kousenit'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.9
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12', {
+        excludes 'org.hamcrest:hamcres-core:1.3'
+    }
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+}
