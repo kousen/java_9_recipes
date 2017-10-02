@@ -16,6 +16,7 @@ public class GroupByTasks {
         Developer matt = new Developer("Matt");
         Developer nate = new Developer("Nate");
         Developer craig = new Developer("Craig");
+        Developer ken = new Developer("Ken");
 
         Task java = new Task("Java stuff", 100);
         Task altJvm = new Task("Groovy/Kotlin/Scala/Clojure", 50);
@@ -23,10 +24,10 @@ public class GroupByTasks {
         Task spring = new Task("Spring", 50);
         Task jpa = new Task("JPA/Hibernate", 20);
 
-        java.addDevelopers(venkat, daniel, brian);
+        java.addDevelopers(venkat, daniel, brian, ken);
         javaScript.addDevelopers(venkat, nate);
-        spring.addDevelopers(craig, matt, nate);
-        altJvm.addDevelopers(venkat, daniel);
+        spring.addDevelopers(craig, matt, nate, ken);
+        altJvm.addDevelopers(venkat, daniel, ken);
 
         List<Task> tasks = Arrays.asList(java, altJvm, javaScript, spring, jpa);
 

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
+import java.util.stream.Stream;
 
 public class DateRange {
     public List<LocalDate> getDays_java8(LocalDate start, LocalDate end) {
@@ -15,6 +16,12 @@ public class DateRange {
         // Trap! For dates with the same day, period.getDays() returns 0 (whoa)
         return LongStream.range(0, ChronoUnit.DAYS.between(start, end))
                 .mapToObj(start::plusDays)
+                .collect(Collectors.toList());
+    }
+
+    public List<LocalDate> getDaysByIterate(LocalDate start, int days) {
+        return Stream.iterate(start, date -> date.plusDays(1))
+                .limit(days)
                 .collect(Collectors.toList());
     }
 

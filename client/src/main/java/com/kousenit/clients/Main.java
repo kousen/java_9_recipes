@@ -1,4 +1,4 @@
-package com.kousenit;
+package com.kousenit.clients;
 
 import com.oreilly.suppliers.NamesSupplier;
 
