@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 public class StreamTests {
     @Test
-    public void ofNullable() throws Exception {
+    public void ofNullable() {
         Stream<String> stream = Stream.ofNullable("abc");
         assertEquals(1, stream.count());
 
@@ -23,7 +23,7 @@ public class StreamTests {
     }
 
     @Test
-    public void iterate() throws Exception {
+    public void iterate() {
         List<BigDecimal> bigDecimals =
                 Stream.iterate(BigDecimal.ZERO, bd -> bd.add(BigDecimal.ONE))
                 .limit(10)
@@ -40,7 +40,7 @@ public class StreamTests {
     }
 
     @Test
-    public void takeWhile() throws Exception {
+    public void takeWhile() {
         List<String> strings = Stream.of("this is a list of strings".split(" "))
                 .takeWhile(s -> !s.equals("of"))
                 .collect(Collectors.toList());
@@ -49,7 +49,7 @@ public class StreamTests {
     }
 
     @Test
-    public void dropWhile() throws Exception {
+    public void dropWhile() {
         List<String> strings = Stream.of("this is a list of strings".split(" "))
                 .dropWhile(s -> !s.equals("of"))
                 .collect(Collectors.toList());
@@ -58,7 +58,7 @@ public class StreamTests {
     }
 
     @Test
-    public void takeWhileRandom() throws Exception {
+    public void takeWhileRandom() {
         Random random = new Random();
         List<Integer> nums = random.ints(50, 0, 100)
                 .boxed()
@@ -71,7 +71,7 @@ public class StreamTests {
     }
 
     @Test
-    public void dropWhileRandom() throws Exception {
+    public void dropWhileRandom() {
         Random random = new Random();
         List<Integer> nums = random.ints(50, 0, 100)
                 .sorted()

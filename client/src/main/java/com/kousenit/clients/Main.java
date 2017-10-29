@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         NamesSupplier supplier = new NamesSupplier();
 
         try (Stream<String> lines = supplier.get()) {

@@ -1,9 +1,12 @@
 package interfaces;
 
 import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 public interface SumNumbers {
+    Predicate<Integer> EVENS = n -> n % 2 == 0;
+
     default int addEvens(int... nums) {
         return add(n -> n % 2 == 0, nums);
     }
