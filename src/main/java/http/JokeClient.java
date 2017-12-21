@@ -15,7 +15,6 @@ public class JokeClient {
                         .newBuilder(uri)
                         .GET()
                         .build(),
-
                 HttpResponse.BodyHandler.asString());
         System.out.println(response.statusCode());
         System.out.println(response.body());

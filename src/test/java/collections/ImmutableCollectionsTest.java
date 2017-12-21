@@ -17,7 +17,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test
-    public void createImmutableList() throws Exception {
+    public void createImmutableList() {
         IntStream.rangeClosed(1, 10)
                 .forEach(n -> {
                     List<Integer> intList = List.of(intArgs(n));
@@ -28,37 +28,37 @@ public class ImmutableCollectionsTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void showImmutabilityAdd() throws Exception {
+    public void showImmutabilityAdd() {
         List<Integer> intList = List.of(1, 2, 3);
         intList.add(99);
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void showImmutabilityClear() throws Exception {
+    public void showImmutabilityClear() {
         List<Integer> intList = List.of(1, 2, 3);
         intList.clear();
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void showImmutabilityRemove() throws Exception {
+    public void showImmutabilityRemove() {
         List<Integer> intList = List.of(1, 2, 3);
         intList.remove(0);
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void showImmutabilityReplace() throws Exception {
+    public void showImmutabilityReplace() {
         List<Integer> intList = List.of(1, 2, 3);
         intList.replaceAll(n -> -n);
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void showImmutabilitySet() throws Exception {
+    public void showImmutabilitySet() {
         List<Integer> intList = List.of(1, 2, 3);
         intList.set(0, 99);
     }
 
     @Test
-    public void areWeImmutableOrArentWe() throws Exception {
+    public void areWeImmutableOrArentWe() {
         List<Holder> holders = List.of(new Holder(1), new Holder(2));
         assertEquals(1, holders.get(0).getX());
 
@@ -67,7 +67,7 @@ public class ImmutableCollectionsTest {
     }
 
     @Test
-    public void testVarargsList() throws Exception {
+    public void testVarargsList() {
         List<Integer> intList = List.of(intArgs(11));
         assertEquals(11, intList.size());
         assertEquals( 1, intList.get(0).intValue());

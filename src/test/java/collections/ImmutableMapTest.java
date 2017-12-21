@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class ImmutableMapTest {
 
     @Test
-    public void immutableMapFromEntries() throws Exception {
+    public void immutableMapFromEntries() {
         Map<String, String> jvmLanguages = Map.ofEntries(Map.entry("Java",
                 "http://www.oracle.com/technetwork/java/index.html"),
                 Map.entry("Groovy", "http://groovy-lang.org/"),
