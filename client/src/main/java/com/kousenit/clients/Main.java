@@ -2,7 +2,6 @@ package com.kousenit.clients;
 
 import com.oreilly.suppliers.NamesSupplier;
 
-import java.io.IOException;
 import java.util.stream.Stream;
 
 public class Main {
