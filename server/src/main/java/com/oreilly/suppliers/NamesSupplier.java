@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 public class NamesSupplier implements Supplier<Stream<String>> {
-    private Path namesPath = Paths.get("server/src/main/resources/names.txt");
+    private Path namesPath = Paths.get("src/main/resources/names.txt");
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
     @Override

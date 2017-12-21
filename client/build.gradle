@@ -1,12 +1,17 @@
+plugins {
+    id 'java-library'
+    id "org.gradle.java.experimental-jigsaw" version "0.1.1"
+}
+
 group 'com.kousenit'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
 sourceCompatibility = 1.9
 
+javaModule.name = 'com.kousenit.clients'
+
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
