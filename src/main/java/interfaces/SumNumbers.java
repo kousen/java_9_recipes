@@ -5,10 +5,11 @@ import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 public interface SumNumbers {
-    Predicate<Integer> EVENS = n -> n % 2 == 0;
+    IntPredicate EVENS = n -> n % 2 == 0;
 
     default int addEvens(int... nums) {
-        return add(n -> n % 2 == 0, nums);
+        // return add(n -> n % 2 == 0, nums);
+        return add(EVENS, nums);
     }
 
     default int addOdds(int... nums) {
