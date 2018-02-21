@@ -13,15 +13,17 @@ public class ImmutableMapTest {
 
     @Test
     public void immutableMapFromEntries() {
-        Map<String, String> jvmLanguages = Map.ofEntries(Map.entry("Java",
-                "http://www.oracle.com/technetwork/java/index.html"),
+        Map<String, String> jvmLanguages = Map.ofEntries(
+                Map.entry("Java", "http://www.oracle.com/technetwork/java/index.html"),
                 Map.entry("Groovy", "http://groovy-lang.org/"),
                 Map.entry("Scala", "http://www.scala-lang.org/"),
                 Map.entry("Clojure", "https://clojure.org/"),
                 Map.entry("Kotlin", "http://kotlinlang.org/"));
 
         Set<String> names = Set.of("Java", "Scala", "Groovy", "Clojure", "Kotlin");
-        List<String> urls = List.of("http://www.oracle.com/technetwork/java/index.html",
+
+        List<String> urls = List.of(
+                "http://www.oracle.com/technetwork/java/index.html",
                 "http://groovy-lang.org/",
                 "http://www.scala-lang.org/",
                 "https://clojure.org/",
@@ -32,7 +34,8 @@ public class ImmutableMapTest {
         names.forEach(name -> assertTrue(keys.contains(name)));
         urls.forEach(url -> assertTrue(values.contains(url)));
 
-        Map<String, String> javaMap = Map.of("Java",
+        Map<String, String> javaMap = Map.of(
+                "Java",
                 "http://www.oracle.com/technetwork/java/index.html",
                 "Groovy",
                 "http://groovy-lang.org/",
