@@ -5,8 +5,8 @@ plugins {
 group 'com.kousenit'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = '9'
-targetCompatibility = '9'
+sourceCompatibility = '10'
+targetCompatibility = '10'
 
 repositories {
     jcenter()
