@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.kousenit'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 sourceCompatibility = '10'
 targetCompatibility = '10'
@@ -13,8 +13,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12', {
-        exclude module:'org.hamcrest:hamcrest-core:1.3'
-    }
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
     testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+}
+
+test {
+    useJUnitPlatform()
 }

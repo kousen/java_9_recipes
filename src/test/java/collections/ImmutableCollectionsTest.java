@@ -1,12 +1,12 @@
 package collections;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ImmutableCollectionsTest {
 
@@ -27,34 +27,34 @@ public class ImmutableCollectionsTest {
                 });
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void showImmutabilityAdd() {
         List<Integer> intList = List.of(1, 2, 3);
-        intList.add(99);
+        assertThrows(UnsupportedOperationException.class, () -> intList.add(99));
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void showImmutabilityClear() {
         List<Integer> intList = List.of(1, 2, 3);
-        intList.clear();
+        assertThrows(UnsupportedOperationException.class, () -> intList.clear());
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void showImmutabilityRemove() {
         List<Integer> intList = List.of(1, 2, 3);
-        intList.remove(0);
+        assertThrows(UnsupportedOperationException.class, () -> intList.remove(0));
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void showImmutabilityReplace() {
         List<Integer> intList = List.of(1, 2, 3);
-        intList.replaceAll(n -> -n);
+        assertThrows(UnsupportedOperationException.class, () -> intList.replaceAll(n -> -n));
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void showImmutabilitySet() {
         List<Integer> intList = List.of(1, 2, 3);
-        intList.set(0, 99);
+        assertThrows(UnsupportedOperationException.class, () -> intList.set(0, 99));
     }
 
     @Test
