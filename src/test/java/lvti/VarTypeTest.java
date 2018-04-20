@@ -35,7 +35,19 @@ public class VarTypeTest {
 
     @Test
     void dontDoThis() {
-        var var = "var";
+        var var =  new Var("var");
         assertEquals(String.class, var.getClass());
+    }
+}
+
+class Var {
+    private String var;
+
+    public Var(String var) {
+        this.var = var;
+    }
+
+    public String getVar() {
+        return var;
     }
 }
