@@ -18,7 +18,7 @@ public interface SumNumbers {
 
     private int add(IntPredicate predicate, int... nums) {
         return IntStream.of(nums)
-                .filter(predicate)
-                .sum();
+                        .filter(predicate)
+                        .sum();
     }
 }

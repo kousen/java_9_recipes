@@ -24,7 +24,14 @@ public class VarTypeTest {
     @Test
     void inferListOfString() {
         var strings = List.of("this", "is", "a", "list", "of", "strings");
+        System.out.println(strings.getClass().getName());
         assertTrue(strings instanceof List);
+
+        List<Integer> nums = new ArrayList<>();
+        nums.add(3); nums.add(1); nums.add(4);
+        var numsVar = nums;
+        System.out.println(numsVar.getClass().getName());
+        assertEquals(ArrayList.class, numsVar.getClass());
     }
 
     @Test
