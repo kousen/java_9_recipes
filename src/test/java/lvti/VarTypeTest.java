@@ -43,7 +43,7 @@ public class VarTypeTest {
     @Test
     void dontDoThis() {
         var var =  new Var("var");
-        assertEquals(String.class, var.getClass());
+        assertEquals(Var.class, var.getClass());
     }
 }
 
