@@ -1,22 +1,44 @@
 package http;
 
-import jdk.incubator.http.HttpClient;
-import jdk.incubator.http.HttpRequest;
-import jdk.incubator.http.HttpResponse;
-
+import java.io.IOException;
 import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+import java.util.concurrent.ExecutionException;
 
 public class JokeClient {
-    public static void main(String[] args) throws Exception {
-        URI uri = new URI("http://api.icndb.com/jokes/random?limitTo=[nerdy]");
-        HttpClient client = HttpClient.newHttpClient();
+    private String jokeUrl = "http://api.icndb.com/jokes/random?limitTo=[nerdy]";
+    private HttpClient client;
+    private HttpRequest request;
+
+    public JokeClient() {
+        client = HttpClient.newBuilder()
+                           .version(HttpClient.Version.HTTP_2)
+                           .connectTimeout(Duration.ofSeconds(2))
+                           .build();
+        request = HttpRequest.newBuilder()
+                             .uri(URI.create(jokeUrl))
+                             .GET()
+                             .build();
+    }
+
+    public String getJokeSync() throws IOException, InterruptedException {
         HttpResponse<String> response = client.send(
-                HttpRequest
-                        .newBuilder(uri)
-                        .GET()
-                        .build(),
-                HttpResponse.BodyHandler.asString());
-        System.out.println(response.statusCode());
-        System.out.println(response.body());
+                request,
+                HttpResponse.BodyHandlers.ofString());
+        return response.body();
+    }
+
+    public String getJokeAsync() throws ExecutionException, InterruptedException {
+        HttpClient client = HttpClient.newBuilder()
+                                      .version(HttpClient.Version.HTTP_2)
+                                      .connectTimeout(Duration.ofSeconds(2))
+                                      .build();
+
+        return client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                     .thenApply(HttpResponse::body)
+                     .get();
     }
 }
