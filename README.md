@@ -1,10 +1,10 @@
 # java_9_recipes
 Source code for Java 9 chapter of Modern Java Recipes
 
-http://shop.oreilly.com/product/0636920056669.do
+com.kousenit.recipes.http://shop.oreilly.com/product/0636920056669.do
 
-Note: As of Apr 2018, tests have been ported to JUnit 5 and 
-the code builds properly on Java 10.
+Note: As of Sep 2018, tests have been ported to JUnit 5, modules have been added (Gson and java.logging) along with the associated Gradle modifications, and 
+the code builds properly on Java 11.ea.28-open.
 
 Ken Kousen
 

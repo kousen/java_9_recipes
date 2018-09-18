@@ -4,4 +4,7 @@ module com.kousenit.recipes {
 
     // Java 11:
     requires java.net.http;
+
+    requires gson;
+    requires java.logging;
 }
