@@ -14,20 +14,20 @@ public class ImmutableMapTest {
     @Test
     public void immutableMapFromEntries() {
         Map<String, String> jvmLanguages = Map.ofEntries(
-                Map.entry("Java", "com.kousenit.recipes.http://www.oracle.com/technetwork/java/index.html"),
-                Map.entry("Groovy", "com.kousenit.recipes.http://groovy-lang.org/"),
-                Map.entry("Scala", "com.kousenit.recipes.http://www.scala-lang.org/"),
+                Map.entry("Java", "http://www.oracle.com/technetwork/java/index.html"),
+                Map.entry("Groovy", "http://groovy-lang.org/"),
+                Map.entry("Scala", "http://www.scala-lang.org/"),
                 Map.entry("Clojure", "https://clojure.org/"),
-                Map.entry("Kotlin", "com.kousenit.recipes.http://kotlinlang.org/"));
+                Map.entry("Kotlin", "http://kotlinlang.org/"));
 
         Set<String> names = Set.of("Java", "Scala", "Groovy", "Clojure", "Kotlin");
 
         List<String> urls = List.of(
-                "com.kousenit.recipes.http://www.oracle.com/technetwork/java/index.html",
-                "com.kousenit.recipes.http://groovy-lang.org/",
-                "com.kousenit.recipes.http://www.scala-lang.org/",
+                "http://www.oracle.com/technetwork/java/index.html",
+                "http://groovy-lang.org/",
+                "http://www.scala-lang.org/",
                 "https://clojure.org/",
-                "com.kousenit.recipes.http://kotlinlang.org/");
+                "http://kotlinlang.org/");
 
         Set<String> keys = jvmLanguages.keySet();
         Collection<String> values = jvmLanguages.values();
@@ -36,15 +36,15 @@ public class ImmutableMapTest {
 
         Map<String, String> javaMap = Map.of(
                 "Java",
-                "com.kousenit.recipes.http://www.oracle.com/technetwork/java/index.html",
+                "http://www.oracle.com/technetwork/java/index.html",
                 "Groovy",
-                "com.kousenit.recipes.http://groovy-lang.org/",
+                "http://groovy-lang.org/",
                 "Scala",
-                "com.kousenit.recipes.http://www.scala-lang.org/",
+                "http://www.scala-lang.org/",
                 "Clojure",
                 "https://clojure.org/",
                 "Kotlin",
-                "com.kousenit.recipes.http://kotlinlang.org/");
+                "http://kotlinlang.org/");
         javaMap.forEach((name, url) -> assertTrue(
                 jvmLanguages.keySet().contains(name) && jvmLanguages.values().contains(url)));
     }
