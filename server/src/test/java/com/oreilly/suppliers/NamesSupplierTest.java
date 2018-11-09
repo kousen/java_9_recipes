@@ -1,8 +1,9 @@
 package com.oreilly.suppliers;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NamesSupplierTest {
     private NamesSupplier supplier = new NamesSupplier();

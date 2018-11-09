@@ -9,7 +9,7 @@ public class SafeVaragsDemo {
         return strings;
     }
 
-    //@SafeVarargs  // can only be applied to final methods
+    @SafeVarargs  // can only be applied to final methods
     public final <T> T[] replaceFirstValueInArray(T value, T... array) {
         // Compiles because of type erasure
         // But "possible heap pollution from parameterized vararg type"

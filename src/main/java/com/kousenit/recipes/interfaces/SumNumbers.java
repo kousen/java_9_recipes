@@ -1,6 +1,7 @@
 package com.kousenit.recipes.interfaces;
 
 import java.util.function.IntPredicate;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 public interface SumNumbers {
