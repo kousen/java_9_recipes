@@ -4,8 +4,6 @@ plugins {
     id 'eclipse'
 }
 
-ext.moduleName = 'com.kousenit.recipes'
-
 group 'com.kousenit'
 version '1.0'
 
@@ -29,7 +27,6 @@ test {
 }
 
 compileJava {
-    inputs.property("moduleName", moduleName)
     doFirst {
         options.compilerArgs = [
                 '--module-path', classpath.asPath,
