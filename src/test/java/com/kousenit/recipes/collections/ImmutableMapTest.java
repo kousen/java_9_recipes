@@ -7,18 +7,53 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static java.util.Map.entry;
+import static java.util.Map.ofEntries;
+import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class ImmutableMapTest {
 
     @Test
+    void setOf() {
+        Set<String> letters = Set.of("a", "b");
+        assertEquals(2, letters.size());
+    }
+
+    @Test
+    void listOf() {
+        List<String> letters = List.of("a", "b");
+        assertEquals(2, letters.size());
+    }
+
+    @Test
+    void setOfDuplicates() {
+        assertThrows(IllegalArgumentException.class, () -> Set.of("a", "a"));
+    }
+
+    @Test
+    void mapWithNulls() {
+        assertAll("No null keys or values",
+                () -> assertThrows(NullPointerException.class, () -> Map.of(null, "value")),
+                () -> assertThrows(NullPointerException.class, () -> Map.of("key", null)));
+    }
+
+    @Test
+    void noDuplicateKeysInMap() {
+        assertThrows(IllegalArgumentException.class, () ->
+                ofEntries(entry("k1", "v1"),
+                        entry("k2", "v1"),
+                        entry("k1", "v2")));
+    }
+
+    @Test
     public void immutableMapFromEntries() {
-        Map<String, String> jvmLanguages = Map.ofEntries(
-                Map.entry("Java", "http://www.oracle.com/technetwork/java/index.html"),
-                Map.entry("Groovy", "http://groovy-lang.org/"),
-                Map.entry("Scala", "http://www.scala-lang.org/"),
-                Map.entry("Clojure", "https://clojure.org/"),
-                Map.entry("Kotlin", "http://kotlinlang.org/"));
+        Map<String, String> jvmLanguages = ofEntries(
+                entry("Java", "http://www.oracle.com/technetwork/java/index.html"),
+                entry("Groovy", "http://groovy-lang.org/"),
+                entry("Scala", "http://www.scala-lang.org/"),
+                entry("Clojure", "https://clojure.org/"),
+                entry("Kotlin", "http://kotlinlang.org/"));
 
         Set<String> names = Set.of("Java", "Scala", "Groovy", "Clojure", "Kotlin");
 
