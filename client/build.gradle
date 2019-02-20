@@ -9,7 +9,6 @@ dependencies {
     implementation project(':server')
     testImplementation libs.junit_api
     testImplementation libs.hamcrest
-    testRuntimeOnly libs.junit_engine
 }
 
 test {

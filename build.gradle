@@ -6,9 +6,8 @@ plugins {
 
 ext.libs = [
         gson: 'com.google.code.gson:gson:2.8.5',
-        hamcrest: 'org.hamcrest:hamcrest-library:2.1',
-        junit_api: 'org.junit.jupiter:junit-jupiter-api:5.4.0',
-        junit_engine: 'org.junit.jupiter:junit-jupiter-engine:5.4.0'
+        hamcrest: 'org.hamcrest:hamcrest:2.1',
+        junit_api: 'org.junit.jupiter:junit-jupiter:5.4.0',
 ]
 
 allprojects {
@@ -27,7 +26,6 @@ dependencies {
     implementation libs.gson
     testImplementation libs.junit_api
     testImplementation libs.hamcrest
-    testRuntimeOnly libs.junit_engine
 }
 
 test {
