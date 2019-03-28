@@ -27,6 +27,13 @@ public class ImmutableMapTest {
     }
 
     @Test
+    void addingElementThrowsUOE() {
+        List<String> strings = List.of("a", "b");
+        assertThrows(UnsupportedOperationException.class,
+                     () -> strings.add("c"));
+    }
+
+    @Test
     void setOfDuplicates() {
         assertThrows(IllegalArgumentException.class, () -> Set.of("a", "a"));
     }
@@ -34,16 +41,16 @@ public class ImmutableMapTest {
     @Test
     void mapWithNulls() {
         assertAll("No null keys or values",
-                () -> assertThrows(NullPointerException.class, () -> Map.of(null, "value")),
-                () -> assertThrows(NullPointerException.class, () -> Map.of("key", null)));
+                  () -> assertThrows(NullPointerException.class, () -> Map.of(null, "value")),
+                  () -> assertThrows(NullPointerException.class, () -> Map.of("key", null)));
     }
 
     @Test
     void noDuplicateKeysInMap() {
         assertThrows(IllegalArgumentException.class, () ->
                 ofEntries(entry("k1", "v1"),
-                        entry("k2", "v1"),
-                        entry("k1", "v2")));
+                          entry("k2", "v1"),
+                          entry("k1", "v2")));
     }
 
     @Test
