@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class SafeVaragsDemo {
 
-    public String[] replaceFirstStringWithDate(LocalDate date, String[] strings) {
+    public String[] replaceFirstStringWithDate(LocalDate date, String... strings) {
         strings[0] = date.toString();
         return strings;
     }
