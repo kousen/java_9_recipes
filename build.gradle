@@ -30,13 +30,20 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    jvmArgs(['--enable-preview'])
 }
 
 compileJava {
     doFirst {
         options.compilerArgs = [
-                '--module-path', classpath.asPath,
+                '--enable-preview',
+                '--module-path', classpath.asPath
         ]
         classpath = files()
     }
 }
+
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
