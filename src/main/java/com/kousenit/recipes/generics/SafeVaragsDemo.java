@@ -2,6 +2,7 @@ package com.kousenit.recipes.generics;
 
 import java.time.LocalDate;
 
+@SuppressWarnings("UnusedReturnValue")
 public class SafeVaragsDemo {
 
     public String[] replaceFirstStringWithDate(LocalDate date, String... strings) {

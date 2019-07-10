@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -38,6 +39,20 @@ public class VarTypeTest {
     void inferArrayListOfString() {
         var strings = new ArrayList<String>();
         assertEquals(ArrayList.class, strings.getClass());
+    }
+
+    @Test
+    void loopOverComplicatedMap() {
+        Map<String, List<Integer>> map = Map.ofEntries(
+                Map.entry("a", List.of(1, 2, 3)),
+                Map.entry("b", List.of(1, 2, 3)),
+                Map.entry("c", List.of(1, 2, 3)),
+                Map.entry("d", List.of(1, 2, 3)));
+
+        // LVTI useful in for loops and try-with-resource blocks
+        for (var e : map.entrySet()) {
+            System.out.println(e.getKey() + ": " + e.getValue());
+        }
     }
 
     @Test

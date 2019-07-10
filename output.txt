@@ -6,7 +6,6 @@ gradle
 gradle.properties
 gradlew
 gradlew.bat
-java_9_recipes
 out
 output.txt
 server
