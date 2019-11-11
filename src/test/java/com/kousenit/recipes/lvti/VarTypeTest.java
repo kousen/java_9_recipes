@@ -10,6 +10,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@SuppressWarnings({"UnnecessaryBoxing", "ConstantConditions", "UnnecessaryLocalVariable", "MismatchedQueryAndUpdateOfCollection"})
 public class VarTypeTest {
     @Test
     void inferString() {
@@ -57,9 +58,24 @@ public class VarTypeTest {
     }
 
     @Test
+    void inferredAnonymousType() {
+        var v = new Runnable() {
+            public void run() {
+                System.out.println("Running...");
+            }
+
+            public void runTwice() {
+                run();
+                run();
+            }
+        };
+
+        v.runTwice();
+    }
+
+    @Test
     void dontDoThis() {
         var var =  new Var("var");
-        assertEquals(Var.class, var.getClass());
     }
 }
 
