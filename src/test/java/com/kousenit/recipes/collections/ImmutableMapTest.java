@@ -88,6 +88,6 @@ public class ImmutableMapTest {
                 "Kotlin",
                 "http://kotlinlang.org/");
         javaMap.forEach((name, url) -> assertTrue(
-                jvmLanguages.keySet().contains(name) && jvmLanguages.values().contains(url)));
+                jvmLanguages.containsKey(name) && jvmLanguages.containsValue(url)));
     }
 }

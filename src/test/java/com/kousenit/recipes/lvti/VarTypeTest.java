@@ -74,6 +74,11 @@ public class VarTypeTest {
     }
 
     @Test
+    void nullProblem() {
+        // var x = null;
+    }
+
+    @Test
     void dontDoThis() {
         var var =  new Var("var");
     }
