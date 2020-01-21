@@ -6,5 +6,5 @@ module com.kousenit.recipes {
     requires java.net.http;
 
     requires java.logging;
-    requires com.google.gson;
+	requires com.google.gson;
 }

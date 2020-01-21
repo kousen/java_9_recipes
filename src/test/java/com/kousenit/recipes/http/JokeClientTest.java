@@ -12,8 +12,8 @@ class JokeClientTest {
     private Logger logger = Logger.getLogger(JokeClientTest.class.getName());
 
     private JokeClient client = new JokeClient();
-    private String heroFirstName = "Andrew";
-    private String heroLastName = "Ehrig";
+    private String heroFirstName = "Derek";
+    private String heroLastName = "Hakim";
 
     @Test
     void getJokeSync() throws IOException, InterruptedException {
