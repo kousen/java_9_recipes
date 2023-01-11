@@ -1,5 +1,6 @@
 package com.kousenit.recipes.http;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,12 +9,13 @@ import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled("Service no longer available")
 class JokeClientTest {
-    private Logger logger = Logger.getLogger(JokeClientTest.class.getName());
+    private final Logger logger = Logger.getLogger(JokeClientTest.class.getName());
 
-    private JokeClient client = new JokeClient();
-    private String heroFirstName = "Derek";
-    private String heroLastName = "Hakim";
+    private final JokeClient client = new JokeClient();
+    private final String heroFirstName = "Derek";
+    private final String heroLastName = "Hakim";
 
     @Test
     void getJokeSync() throws IOException, InterruptedException {
