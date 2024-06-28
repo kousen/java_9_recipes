@@ -7,7 +7,7 @@ plugins {
 ext.libs = [
         gson: 'com.google.code.gson:gson:2.11.0',
         hamcrest: 'org.hamcrest:hamcrest:2.2',
-        junit_api: 'org.junit.jupiter:junit-jupiter:5.10.2',
+        junit_api: 'org.junit.jupiter:junit-jupiter:5.10.3',
 ]
 
 allprojects {
