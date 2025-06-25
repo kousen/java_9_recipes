@@ -14,18 +14,27 @@ allprojects {
     group 'com.kousenit'
     version '1.0'
 
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
 dependencies {
+    // JUnit BOM for consistent versions
+    testImplementation platform("org.junit:junit-bom:5.13.2")
+    
     implementation libs.gson
     testImplementation libs.junit_api
     testImplementation libs.hamcrest
+    
+    // Required for Gradle test execution
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {

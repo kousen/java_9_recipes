@@ -3,9 +3,15 @@ plugins {
 }
 
 dependencies {
+    // JUnit BOM for consistent versions
+    testImplementation platform("org.junit:junit-bom:5.13.2")
+    
     implementation libs.gson
     testImplementation libs.junit_api
     testImplementation libs.hamcrest
+    
+    // Required for Gradle test execution
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
