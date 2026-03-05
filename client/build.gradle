@@ -3,7 +3,9 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'com.kousenit.clients.Main'
+application {
+    mainClass = 'com.kousenit.clients.Main'
+}
 
 dependencies {
     implementation project(':server')
